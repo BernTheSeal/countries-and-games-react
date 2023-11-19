@@ -75,7 +75,7 @@ const Details = ({countries}) => {
                 </div>
                 <div >
                     <h4>population</h4>
-                    <p>{selectedCountry.population}</p>
+                    <p>{selectedCountry.population.toLocaleString()}</p>
                     
                 </div>
                 <div >

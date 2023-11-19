@@ -29,7 +29,9 @@ const Home = ({countries}) => {
                         <span style={{fontSize: 16}}>games</span>
                     </div>
                 </SearchBar>
+                
             </Header>
+            
             <List>
                 <ul>
                     {
@@ -50,7 +52,7 @@ const Home = ({countries}) => {
                                             }}>{country.name.common}
                                         </h3>
                                         <p> <span>Capital:</span>  {country.capital} </p>
-                                        <p> <span>Population:</span>  {country.population} </p>
+                                        <p> <span>Population:</span>  {country.population.toLocaleString()} </p>
                                         <p> <span>Region:</span>  {country.region}</p>      
                                     </div>
                                 </li>
