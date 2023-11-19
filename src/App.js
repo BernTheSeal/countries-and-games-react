@@ -1,0 +1,36 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from "./components/Home"
+import Details from "./components/Details"
+import GamesPage from './components/GamesPage';
+import PopulationGame from './components/games/PopulationGame';
+import { useEffect, useState } from 'react';
+
+function App() {
+  const [countries, setCountries] = useState(false)
+  
+  useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all")
+      .then( res => {
+        if (res.ok && res.status === 200) {
+          return res.json()
+        }
+      })
+      .then(data => setCountries(data))
+
+      .catch(err => console.log(err))
+        
+  }, []);
+
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home countries={countries} />} />
+        <Route path="/Details/:id" element={<Details countries={countries} />} />
+        <Route path="/GamesPage" element={<GamesPage countries={countries} />} />
+        <Route path="/PopulationGame" element={<PopulationGame countries={countries} />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
