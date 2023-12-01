@@ -25,8 +25,7 @@ const Home = ({countries}) => {
                             onChange={(e) => setQ(e.target.value)}
                     />
                     <div onClick={() => navigate('GamesPage')}>
-                        <i class="fa-solid fa-puzzle-piece"></i>
-                        <span style={{fontSize: 16}}>games</span>
+                        <span style={{fontSize: 16}}>Games & Quizzes</span>
                     </div>
                 </SearchBar>
                 
