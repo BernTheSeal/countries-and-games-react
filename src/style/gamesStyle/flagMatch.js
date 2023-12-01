@@ -73,19 +73,102 @@ export const Board = styled.div`
         width: 120px;
         display: flex;
         justify-content: center;
+
     }
 
 `
 export const GameOver = styled.div `
+    
     width: 100vw;
     height: 100vh;
     background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
+    display:flex;
     justify-content: center;
+    align-items: center;
     z-index: 1;
+`
+ 
+export const ContainerGameOver = styled.div`
+    border: 2px solid black;
+    width: 1000px;
+    height: 550px;
+
+    div.game-over {
+        font-weight: 600;
+        background-color: black;
+        padding: 20px;
+        font-size: 40px;
+        color: #CA4545;
+        display: flex;
+        justify-content: center;
+    }
+
+    div.country-info {
+        font-weight: 300;
+        margin-top: 20px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+
+        img {
+            margin-left: 20px;
+            height: 140px;
+            width: 220px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    }
+
+    div.score {
+        font-weight: 300;
+        margin-top: 20px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        
+    }
+
+    div.buttons {
+        
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+
+        div {
+            font-family: 'Roboto Condensed', sans-serif;
+            padding: 20px;
+            width: 200px;
+            font-size: 20px;
+            font-weight: 400;
+            border-radius: 20px;
+            cursor: pointer;
+            border: 2px solid black;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .1s ease;
+
+            &:hover {
+                background-color: black;
+                color: white;
+                
+            }
+
+            &:hover i {
+                color: white;
+            }
+
+            i {
+                font-size: 15px;
+                margin-right: 10px;
+            }
+        }
+    }
 `

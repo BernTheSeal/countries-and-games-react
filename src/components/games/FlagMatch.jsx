@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Flags, Tittle, Board, GameOver } from "../../style/gamesStyle/flagMatch";
+import { Container, Flags, Tittle, Board, GameOver, ContainerGameOver } from "../../style/gamesStyle/flagMatch";
 
 const FlagMatch = ({ countries }) => {
+
+  //todo high score icin bir tane local storage kullan ve gamepage ekreninda her oyun icin ayri ayri yazdir.
+  //todo game over ekranini duzenle. bayrak gelsin skor gelsin eger new hihgscore ise highscore vs bisiler yazssin.
+  //todo game over ekraninda ekstradan ilgili ulkenin details sayfasina gitme olsun ve koyabilrisen bir tane de wikipedia linki koy.
       
   const [flags, setFlags] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null)
@@ -87,20 +91,28 @@ const FlagMatch = ({ countries }) => {
     <Container>
       {isGameOver && (
         <GameOver>
-          <div>
-            {selectedCountry.name.common} flags is <img src={selectedCountry.flags.png} alt="" />
-          </div>
-          <div>
-            your score is : {score}
-          </div>
-          <p>Game Over</p>
-          <button onClick={() => {
-              setScore(0) 
-              generateRandomFlags()
-            }
-          }>try again</button>
-
-          <button onClick={() => navigate('/GamesPage')}> go game page</button>
+          <ContainerGameOver>
+            <div className="game-over">
+              Game Over :(
+            </div>
+            <div className="country-info">
+              <div>
+                {selectedCountry.name.common} flag is
+              </div>
+              <img src={selectedCountry.flags.png} alt="" />
+            </div>
+            <div className="score">
+              <p> Score <span style={{fontSize:50, fontWeight:300}}> {score} </span> </p>
+            </div>
+            <div className="buttons">
+              <div onClick={() => {
+                  setScore(0) 
+                  generateRandomFlags()
+                }
+              }> <i class="fa-solid fa-rotate-right"></i>  Try Again</div>
+              <div onClick={() => navigate('/GamesPage')}> <i class="fa-solid fa-arrow-left"></i> Games Menu</div>
+            </div>
+          </ContainerGameOver>        
         </GameOver>
       )}
       {(!isGameOver) && flags.map((fl, i) => {
