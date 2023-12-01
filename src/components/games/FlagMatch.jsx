@@ -45,7 +45,6 @@ const FlagMatch = ({ countries }) => {
     setIsGameOver(false)
     setIsFlagClickable(true)
     
-    
     const newFlags = [];
     while (newFlags.length < 4) {
       const randomIndex = Math.floor(Math.random() * countries.length)
@@ -66,23 +65,18 @@ const FlagMatch = ({ countries }) => {
     if (!isFlagClickable) {
       return;
     }
-
     const correctFlagIndex = flags.findIndex(flag => flag === selectedCountry)
     const isCorrect = correctFlagIndex === id
     setIsFlagClickable(false)
 
     if (isCorrect) {
       setIsTittleColor('green')
-      
       setScore(n => n + 1)
       setTimeout(() => {
         generateRandomFlags()
       }, 2000);  
-
     } else {
       setIsTittleColor('red')
-      
-      
       setTimeout(() => {
         setIsGameOver(true)
       }, 2000);
@@ -109,7 +103,6 @@ const FlagMatch = ({ countries }) => {
           <button onClick={() => navigate('/GamesPage')}> go game page</button>
         </GameOver>
       )}
-
       {(!isGameOver) && flags.map((fl, i) => {
         return (
           <Flags
@@ -124,12 +117,9 @@ const FlagMatch = ({ countries }) => {
         );
       })}
 
-      <Tittle 
-        titleColor={titleColor}
-      > 
+      <Tittle titleColor={titleColor}>
           {selectedCountry ? selectedCountry.name.common : ''}
       </Tittle>
-
       <Board>
           <div className="score">score: {score}</div>
           <div className="counter">{counter}</div>

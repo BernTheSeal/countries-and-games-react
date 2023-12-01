@@ -5,7 +5,7 @@ const GamesPage = () => {
     return (
         <Body >
             <Header>
-                <h3 > <i class="fa-solid fa-gamepad"></i>Games & Quizzes</h3>
+                <h3> <i class="fa-solid fa-gamepad"></i>Games & Quizzes</h3>
                 <div>
                     <a href="https://github.com/BernTheSeal" target="_blank"> 
                         <i class="fa-brands fa-github fa-bounce"></i>
@@ -14,7 +14,6 @@ const GamesPage = () => {
             </Header>
             <GamesPanel>
                 <Game 
-                   
                     name={"Flag Match"} 
                     iTag={"fa-solid fa-flag-usa"} 
                     go={'/FlagMatch'}
@@ -37,9 +36,7 @@ const Game = ({name, iTag, go}) => {
                 <i class={iTag} style={{marginRight:40, fontSize:25}}></i>
                 {name}    
             </p>
-            <p>
-                <i class="fa-solid fa-play" style={{fontSize:20}}></i>
-            </p>
+            <p> <i class="fa-solid fa-play" style={{fontSize:20}}></i> </p>
         </div>
     )
 }
