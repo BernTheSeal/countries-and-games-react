@@ -3,11 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Container, Flags, Tittle, Board, GameOver, ContainerGameOver } from "../../style/gamesStyle/flagMatch";
 
 const FlagMatch = ({ countries }) => {
-
-  //todo high score icin bir tane local storage kullan ve gamepage ekreninda her oyun icin ayri ayri yazdir.
-  //todo game over ekranini duzenle. bayrak gelsin skor gelsin eger new hihgscore ise highscore vs bisiler yazssin.
-  //todo game over ekraninda ekstradan ilgili ulkenin details sayfasina gitme olsun ve koyabilrisen bir tane de wikipedia linki koy.
-      
+  const storedScore = localStorage.getItem('flagMatchHighScore') || 0;
   const [flags, setFlags] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null)
   const [score, setScore] = useState(0)
@@ -15,7 +11,14 @@ const FlagMatch = ({ countries }) => {
   const [isGameOver, setIsGameOver] = useState(false)
   const [counter, setCounter] = useState(null)
   const [titleColor, setIsTittleColor] = useState('black')
+  const [highScore, setHighScore] = useState(parseInt(storedScore, 10))
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if(score > highScore) {
+      localStorage.setItem('flagMatchHighScore', score.toString());      
+    }
+  }, [score])
   
   useEffect(() => {
     if (countries && countries.length > 0) {
@@ -30,16 +33,14 @@ const FlagMatch = ({ countries }) => {
   useEffect(() => {
     let interval;
     if (isFlagClickable) {
-      interval = setInterval(() => {
-        setCounter((prevCounter) => prevCounter - 1);
-      }, 1000);
+      interval = setInterval(() => {setCounter((prevCounter) => prevCounter - 1) }, 1000);
     }
-    return () => clearInterval(interval);
-  }, [isFlagClickable]);
+    return () => clearInterval(interval)
+  }, [isFlagClickable])
 
   useEffect(() => {
     if (counter === 0) {
-      setIsGameOver(true);
+      setIsGameOver(true)
     }
   }, [counter]);
   
@@ -76,28 +77,21 @@ const FlagMatch = ({ countries }) => {
     if (isCorrect) {
       setIsTittleColor('green')
       setScore(n => n + 1)
-      setTimeout(() => {
-        generateRandomFlags()
-      }, 2000);  
+      setTimeout(() => {generateRandomFlags()}, 2000)
     } else {
       setIsTittleColor('red')
-      setTimeout(() => {
-        setIsGameOver(true)
-      }, 2000);
+      setTimeout(() => {setIsGameOver(true) }, 2000)
     }    
   }
-
   return (
     <Container>
       {isGameOver && (
         <GameOver>
           <ContainerGameOver>
-            <div className="game-over">
-              Game Over :(
-            </div>
+            <div className="game-over">Game Over :(</div>
             <div className="country-info">
               <div>
-                {selectedCountry.name.common} flag is
+                <span style={{fontWeight:400}}> {selectedCountry.name.common}</span>'s flag is
               </div>
               <img src={selectedCountry.flags.png} alt="" />
             </div>

@@ -7,7 +7,6 @@ export const Background = styled.div`
     width: 100%;
     height: 100vh; 
     
-
     &::after {
         content: "";
         display: block;
@@ -20,21 +19,16 @@ export const Background = styled.div`
         opacity: 0.8;
     }
 `
-
 export const Body = styled.div`
     padding: 50px 200px;
     height: 100vh;
     z-index:1;
     position:relative;
     
-
     div.flag-div {
-        
         height: 20vh;
         display: flex;
         
-        
-
         img {
             
             border-radius: 10px;
@@ -56,14 +50,11 @@ export const Body = styled.div`
     }
 
     div.country-info {
-        
-        
         height: 430px;
         gap: 10px;
         display: flex;
         flex-wrap: wrap;
         margin-top: 90px;
-        
         
         div {
             height: 100px;
@@ -81,13 +72,7 @@ export const Body = styled.div`
 
             i {
                 font-size: 15px;
-            }
-            
-            
-        }
-
-        
-
-       
+            }  
+        }       
     }
 `

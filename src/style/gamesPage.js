@@ -23,9 +23,8 @@ export const Header = styled.div `
             font-size:35px;
         }
     }
-
 `
-export const GamesPanel = styled.div `
+export const Games = styled.div `
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -41,10 +40,21 @@ export const GamesPanel = styled.div `
         cursor: pointer;
         transition: all .3s ease;
         color: gray;
+        position: relative;
         
         &:hover {
             color: black;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        }
+
+        p.high-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            position: absolute;
+            top: 20px;
+            right: 500px;
         }
 
     }

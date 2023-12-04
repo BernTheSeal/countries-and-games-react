@@ -5,26 +5,21 @@ const Details = ({countries}) => {
     const {id} = useParams()
     const stringId = String(id)
 
-    //! Load fix: If countries data is not available, return an empty div to prevent errors during rendering.
     if (!countries) {
         return <div></div>;
     }
 
-    //* Finding the selected country and its population rank.
     const rankPopulation = [...countries].sort(function(a, b){return b.population - a.population})
     const selectedCountry = countries.find((country) => country.population == stringId)
     const rankIndex =  rankPopulation.indexOf(selectedCountry)
     const currencies = selectedCountry.currencies;
     const languages = selectedCountry.languages;
 
-
-    //*Filtering countries that have more than one language.
     const languagesArray = []
     for ( let language in languages) {
         languagesArray.push(languages[language])
     }
 
-    //*Filtering countries that have more than one currency.
     const currenciesArray = []
     for (let currency in currencies) {
         currenciesArray.push(currencies[currency].name)

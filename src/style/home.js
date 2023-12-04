@@ -8,14 +8,12 @@ const rotate360 = keyframes`
     transform: rotate(360deg);
   }
 `;
-
 export const Header = styled.div`
     padding: 0px 200px;
     border-bottom: 1px solid rgb(200, 200, 200);
     margin-top:50px;
-    
+    position: relative;
 `
-
 export const Tittle = styled.div`
     color:black;
     margin-bottom:30px;
@@ -32,7 +30,6 @@ export const Tittle = styled.div`
         animation:${rotate360}  10s linear infinite;
     }
 `
-
 export const SearchBar = styled.div`
     height: 50px;
     display: flex;
@@ -45,7 +42,7 @@ export const SearchBar = styled.div`
         padding-left: 50px;
         font-size: 1rem;
         outline: none;
-        width: 70%;
+        width: 60%;
         border: 1px solid white;
         background-color: rgb(245,245,245);
         border-radius: 10px;   
@@ -85,9 +82,93 @@ export const SearchBar = styled.div`
             position: absolute;
             left:30px;
             top:18px;     
-            color: white;    
+            color: white;     
+        }
+    }
+`
+export const Filter = styled.div`
+    border: 1px solid rgb(215,215,215);
+    display: flex;
+    font-size: 15px;
+    width: 170px;
+    position: absolute;
+    top: 101px;
+    right: 420px;
+    height: 50px;
+    font-weight: 400;
+    color: rgb(100,100,100);
+
+    div.default {
+        display:flex;
+        align-items: center;
+        padding: 0 15px;
+        justify-content: space-between;
+        width: 100%;
+        i {
+            font-size: 10px;
             
         }
+    }
+
+    &:hover div.options {
+        display: block;
+        position: absolute;
+        top:49px;
+    }
+
+    div.options {
+        
+        border: 1px solid rgb(215,215,215);
+        border-top: none;
+        display: none;
+        background-color: white;
+        width: 170px;
+
+        div {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                background-color: black;
+                color: white;
+            }
+
+            &:hover i {
+                color: white;
+            }
+        
+            p {
+                margin-left:5px;
+            }
+
+            i {
+                font-size: 12px;
+            }
+        }
+    }
+`
+export const Profile = styled.div`
+    position: absolute;
+    top: 10px;
+    right: 200px;
+    width: 80px;
+    display:flex;
+    justify-content: space-between;
+    
+    i {
+        font-size: 32px;
+        color: rgb(180,180,180);
+        transition: all .2s ease;
+    }
+
+    i.fa-github:hover {
+        color: #171515 ;
+    }
+
+    i.fa-linkedin:hover {
+        color: #0077b5 ;
     }
 `
 export const List = styled.div`

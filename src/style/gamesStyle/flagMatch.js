@@ -73,12 +73,10 @@ export const Board = styled.div`
         width: 120px;
         display: flex;
         justify-content: center;
-
     }
 
 `
 export const GameOver = styled.div `
-    
     width: 100vw;
     height: 100vh;
     background-color: white;
@@ -87,7 +85,6 @@ export const GameOver = styled.div `
     align-items: center;
     z-index: 1;
 `
- 
 export const ContainerGameOver = styled.div`
     border: 2px solid black;
     width: 1000px;
@@ -128,18 +125,15 @@ export const ContainerGameOver = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 25px;
-        
+        font-size: 25px; 
     }
 
     div.buttons {
-        
         margin-top: 20px;
         display: flex;
         justify-content: space-around;
         align-items: center;
         
-
         div {
             font-family: 'Roboto Condensed', sans-serif;
             padding: 20px;
@@ -147,8 +141,8 @@ export const ContainerGameOver = styled.div`
             font-size: 20px;
             font-weight: 400;
             border-radius: 20px;
+            background-color: rgb(235,235,235);
             cursor: pointer;
-            border: 2px solid black;
             color: black;
             display: flex;
             justify-content: center;
