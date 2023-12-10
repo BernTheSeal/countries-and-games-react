@@ -104,9 +104,9 @@ export const Filter = styled.div`
         padding: 0 15px;
         justify-content: space-between;
         width: 100%;
+        
         i {
             font-size: 10px;
-            
         }
     }
 
@@ -131,12 +131,12 @@ export const Filter = styled.div`
             align-items: center;
 
             &:hover {
-                background-color: black;
-                color: white;
+                background-color: rgb(215,215,215);
+                color: black;
             }
 
             &:hover i {
-                color: white;
+                color: black;
             }
         
             p {

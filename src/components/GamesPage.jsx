@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Body, Games, Header } from "../style/gamesPage";
 const flagMatchScore = localStorage.getItem('flagMatchHighScore') || 0;
-const populationShowdownScore = localStorage.getItem('populationShowdownScore') || 0;
+const populationShowdownScore = localStorage.getItem('PopulationShowdownHighScore') || 0;
 
 const games = [
     {
@@ -22,7 +22,7 @@ const GamesPage = () => {
     return (
         <Body >
             <Header>
-                <h3> <i class="fa-solid fa-gamepad"> </i>Games & Quizzes</h3>
+                <h3> <i class="fa-solid fa-gamepad"> </i>Games</h3>
                 <div>
                     <a href="/"> 
                         <i class="fa-solid fa-globe"></i>
