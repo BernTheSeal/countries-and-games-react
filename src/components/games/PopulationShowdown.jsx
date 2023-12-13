@@ -111,11 +111,10 @@ const GamePage = ({twoCountries, func, score, isClick}) => {
                         </div>
                         <div className={`${ isClick ? 'isClickTrue' : 'isClickFalse' }`} onClick={() => {func('lower')}}>
                             <p  style={{bottom: 23}}  className="icon"><i class="fa-solid fa-sort-down"></i></p>
-                            <p>lower</p>
+                            <p>Lower</p>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </>
     )

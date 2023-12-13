@@ -152,7 +152,6 @@ export const ContainerGameOver = styled.div`
             &:hover {
                 background-color: black;
                 color: white;
-                
             }
 
             &:hover i {

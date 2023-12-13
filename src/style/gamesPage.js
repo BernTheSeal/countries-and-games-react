@@ -23,6 +23,15 @@ export const Header = styled.div `
             font-size:35px;
         }
     }
+
+    a {
+        color:gray;
+        transition: all .2s ease;
+
+        &:hover {
+            color: black;
+        }
+    }
 `
 export const Games = styled.div `
     margin-top: 30px;

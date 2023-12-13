@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { Body, Background } from "../style/details";
+import { Container } from "../style/details";
 
 const Details = ({countries}) => {
     const {id} = useParams()
@@ -14,7 +14,9 @@ const Details = ({countries}) => {
     const rankIndex =  rankPopulation.indexOf(selectedCountry)
     const currencies = selectedCountry.currencies;
     const languages = selectedCountry.languages;
-
+    const wikiLink = selectedCountry.name.common.replace(/ /g, '_');
+    const isIndependent = selectedCountry.independent
+    
     const languagesArray = []
     for ( let language in languages) {
         languagesArray.push(languages[language])
@@ -26,60 +28,82 @@ const Details = ({countries}) => {
     }
 
     return (
-        <Background>
-        <Body>
-            <div className="flag-div"> 
-                <img src={selectedCountry.flags.png} alt="" />
-                <div>
-                    <h3> {selectedCountry.name.common}</h3>
-                    <p> {selectedCountry.capital}</p>
+        <Container>
+            <div className="details">
+                <div className="flag"> 
+                    <img src={selectedCountry.flags.png} alt="" />
+                    <div className="name">
+                        <div>
+                            <h3> {selectedCountry.name.common}</h3>
+                            <p> {selectedCountry.capital}</p>
+                        </div>
+                        <div className="wiki">
+                            <p>much more</p>
+                            <a target="_blank" href={`https://en.wikipedia.org/wiki/${wikiLink}`}><i class="fa-brands fa-wikipedia-w"></i>  </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="info">
+                    <div className="languages">
+                        <h3>Languages</h3>
+                        <div>
+                            {languagesArray.map((lang,i) => {
+                                return <p>{i+1}- {lang}</p>
+                            })}
+                        </div>
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <div className="population">
+                        <div className="population_value">
+                            <h3>Population</h3>
+                            <p>{selectedCountry.population.toLocaleString()}</p>
+                            <i class="fa-solid fa-person"></i>
+                        </div>
+                        <div className="population_rank">
+                            <h3>Population Rank</h3>
+                            <p>{rankIndex + 1}</p>
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                    </div>
+                    <div className="regions">
+                        <div className="region">
+                            <h3>Region</h3>
+                            <p>{selectedCountry.region}</p>
+                            <i class="fa-solid fa-earth-europe"></i>
+                        </div>
+                        <div className="subregion"> 
+                            <h3>Subregion</h3>
+                            <p>{selectedCountry.subregion}</p>
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                    </div>
+                    <div className="independent-week">
+                        <div className="independent">
+                            <h3>Independent</h3>
+                            <p>{isIndependent ? (<i class="fa-solid fa-thumbs-up"></i>) : (<i class="fa-solid fa-thumbs-down"></i>)}</p>
+                            <i class="fa-solid fa-pencil"></i>
+                        </div>
+                        <div className="start-of-week">
+                            <h3>Start of Week</h3>
+                            <p>{selectedCountry.startOfWeek}</p>
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                    </div>
+                    <div className="currencies">
+                        <h3>Currencies</h3>
+                        <div>
+                            {currenciesArray.map((cur,i) => {
+                                return <p>{i+1}- {cur}</p>
+                            })} 
+                        </div>
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
                 </div>
             </div>
-            <div className="country-info">
-                <div> 
-                    <h4>  start of week </h4>
-                    <p>{selectedCountry.startOfWeek}</p>
-                </div>
-                <div>
-                    <h4>currencies</h4>
-                    {
-                        currenciesArray.map((currency, index) => {
-                            return <p key={index} >{currency}</p>
-                        })
-                    }
-                </div>
-                <div>
-                    <h4>region</h4>
-                    <p>{selectedCountry.region}</p>
-                </div>
-                <div>
-                    <h4>independent</h4>
-                    <p> {selectedCountry.independent ? 'yes' : 'no'} </p>
-                </div>
-                <div>
-                    <h4>languages</h4>
-                    {
-                        languagesArray.map((language, index) => {
-                            return <p key={index} >{language}</p>
-                        })
-                    }
-                </div>
-                <div>
-                    <h4>subregion</h4>
-                    <p>{selectedCountry.subregion}</p>
-                </div>
-                <div >
-                    <h4>population</h4>
-                    <p>{selectedCountry.population.toLocaleString()}</p>
-                    
-                </div>
-                <div >
-                    <h4>population rank</h4>
-                    <p> {rankIndex+ 1}th rank</p>
-                </div>
-            </div>
-        </Body>
-        </Background>
+            
+        </Container>
+        
     )
 }
 
