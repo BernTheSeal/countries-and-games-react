@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Body, Games, Header } from "../style/gamesPage";
 const flagMatchScore = localStorage.getItem('flagMatchHighScore') || 0;
 const populationShowdownScore = localStorage.getItem('PopulationShowdownHighScore') || 0;
-const worldZoneMasterScore = localStorage.getItem('WorldZoneMasterHighScore') || 0;
+
 
 const games = [
     {
@@ -16,12 +16,6 @@ const games = [
         icon: 'fa-solid fa-person',
         link: '/PopulationShowdown',   
         score: populationShowdownScore
-    },
-    {
-        title: 'World Zone Master',
-        icon: 'fa-solid fa-map',
-        link: '/WorldZoneMaster',
-        score: worldZoneMasterScore
     }
 ]
 

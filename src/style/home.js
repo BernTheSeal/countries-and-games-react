@@ -172,15 +172,14 @@ export const Profile = styled.div`
     }
 `
 export const List = styled.div`
-    padding: 0px 200px;
     margin-top: 50px;
+    padding: 0 200px;
 
     ul {
-        list-style: none;
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 29px;
+        justify-content: space-between;  
+        row-gap: 15px;
     }
 
     li {
@@ -193,7 +192,8 @@ export const List = styled.div`
         margin-bottom: 50px;
         cursor: pointer;
         transition: all .3s ease;
-
+        
+        
         &:hover {
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }

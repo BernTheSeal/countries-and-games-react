@@ -4,7 +4,7 @@ import Details from "./components/Details"
 import GamesPage from './components/GamesPage';
 import FlagMatch from './components/games/FlagMatch';
 import PopulationsShowdown from './components/games/PopulationShowdown';
-import WorldZoneMaster from './components/games/WorldZoneMaster';
+
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
         <Route path="/GamesPage" element={<GamesPage countries={countries} />} />
         <Route path="/FlagMatch" element={<FlagMatch countries={countries} />} />
         <Route path="/PopulationShowdown" element={<PopulationsShowdown countries={countries}/>} />
-        <Route path="/WorldZoneMaster" element={<WorldZoneMaster countries={countries}/>} />
+        
       </Routes>
     </Router>
   );
